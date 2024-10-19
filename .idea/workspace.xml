@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc27e1ca-efc6-482c-a025-6fd26c251b77" name="Changes" comment="README">
+    <list default="true" id="bc27e1ca-efc6-482c-a025-6fd26c251b77" name="Changes" comment="Requirements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +22,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2nUtvcrQxlSVclo8naorVCFtdrI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -32,6 +35,10 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -53,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729039713257</updated>
       <workItem from="1729039714721" duration="223000" />
+      <workItem from="1729194595031" duration="2805000" />
     </task>
     <task id="LOCAL-00001" summary="k-means">
       <option name="closed" value="true" />
@@ -70,15 +78,33 @@
       <option name="project" value="LOCAL" />
       <updated>1729039897139</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="k-means">
+      <option name="closed" value="true" />
+      <created>1729141874164</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729141874164</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Requirements">
+      <option name="closed" value="true" />
+      <created>1729141903518</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729141903518</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="k-means" />
     <MESSAGE value="README" />
-    <option name="LAST_COMMIT_MESSAGE" value="README" />
+    <MESSAGE value="kmeans" />
+    <MESSAGE value="k-means" />
+    <MESSAGE value="Requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Requirements" />
   </component>
 </project>

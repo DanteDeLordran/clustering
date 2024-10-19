@@ -1,3 +1,3 @@
 # k-means
 
-Handmade k-means algorithm
+Handmade k-means clustering algorithm
