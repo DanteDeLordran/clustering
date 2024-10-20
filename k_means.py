@@ -10,7 +10,7 @@ def csv_to_matrix() -> ndarray:
 
 
 def main():
-    csv_to_matrix()
+    matrix = csv_to_matrix()
 
 
 if __name__ == '__main__':
