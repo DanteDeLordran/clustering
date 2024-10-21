@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc27e1ca-efc6-482c-a025-6fd26c251b77" name="Changes" comment="Getting binary centers for new matrix">
-      <change afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
+    <list default="true" id="bc27e1ca-efc6-482c-a025-6fd26c251b77" name="Changes" comment="Successfully first iteration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/k_means.py" beforeDir="false" afterPath="$PROJECT_DIR$/k_means.py" afterDir="false" />
     </list>
@@ -38,22 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.k_means.executor&quot;: &quot;Run&quot;,
-    &quot;Python.local_search.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lordran&quot;,
-    &quot;last_opened_file_path&quot;: &quot;//wsl.localhost/Arch/home/lordran/workspace/k-means&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.k_means.executor": "Run",
+    "Python.local_search.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "lordran",
+    "last_opened_file_path": "//wsl.localhost/Arch/home/lordran/workspace/k-means",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +74,7 @@
       <workItem from="1729314515608" duration="3133000" />
       <workItem from="1729387510216" duration="3220000" />
       <workItem from="1729394350834" duration="6887000" />
-      <workItem from="1729456774566" duration="12291000" />
+      <workItem from="1729456774566" duration="16038000" />
     </task>
     <task id="LOCAL-00001" summary="k-means">
       <option name="closed" value="true" />
@@ -141,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729484730900</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Successfully first iteration">
+      <option name="closed" value="true" />
+      <created>1729493370976</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1729493370977</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,11 +162,12 @@
     <MESSAGE value="Preparing" />
     <MESSAGE value="Config" />
     <MESSAGE value="Getting binary centers for new matrix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Getting binary centers for new matrix" />
+    <MESSAGE value="Successfully first iteration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully first iteration" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/k_means$local_search.coverage" NAME="local_search Coverage Results" MODIFIED="1729478461233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/k_means$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1729493045403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/k_means$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1729496780366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/clustering$k_means.coverage" NAME="k_means Coverage Results" MODIFIED="1729483904401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
