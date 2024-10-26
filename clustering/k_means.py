@@ -78,17 +78,17 @@ def get_best_clustering(matrix : ndarray, c0 : list[float], c1 : list[float]) ->
     return results
 
 
-def main():
+def run():
     matrix = csv_to_matrix()
     m, b, c0, c1  = matrix_to_binary_centers(matrix)
     new_matrix, c0, c1 = matrix_to_new_base_matrix(matrix, m, b)
     results = get_best_clustering(new_matrix, c0, c1)
     print('Results')
     print(json.dumps(results, indent=4))
-    with open('results.txt', 'w') as file:
+    with open('../results.txt', 'w') as file:
         json.dump(results, file, indent=4)
         print("Results have been saved to 'results.txt'")
 
 
 if __name__ == '__main__':
-    main()
+    run()
