@@ -4,6 +4,12 @@ import numpy as np
 
 
 def csv_to_matrix() -> ndarray:
+    """
+    Takes a CSV file and turns it into a numpy matrix.
+
+    Returns:
+        ndarray: A numpy matrix filled with the CSV data.
+    """
     matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float)
     return matrix
 
