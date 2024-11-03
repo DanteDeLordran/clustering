@@ -26,3 +26,7 @@ def calculate_euclidean_distance(vector1 : ndarray , vector2 : ndarray) -> float
         float: The Euclidean distance between the two vectors.
     """
     return np.sqrt(np.sum((vector1 - vector2) ** 2))
+
+
+def get_max_distance_centers(num : int) -> tuple[float,...]:
+    return tuple( i / (num - 1) for i in range(num))
