@@ -28,5 +28,65 @@ def calculate_euclidean_distance(vector1 : ndarray , vector2 : ndarray) -> float
     return np.sqrt(np.sum((vector1 - vector2) ** 2))
 
 
+def calculate_binary_centers(matrix: ndarray) -> tuple[list[float], list[float]]:
+    c0 = []
+    c1 = []
+
+    for i in range(matrix.shape[1]):
+        c0.append(min(matrix[:,i]))
+        c1.append(max(matrix[:,i]))
+
+    return c0, c1
+
+
+def get_matrix_slope_centers(matrix : ndarray) -> tuple[list[float], list[float]]:
+
+    """
+    Returns the slope between the two centers of the given matrix
+    Args:
+        matrix: The original matrix
+
+    Returns:
+        m , b, c0, c1
+    """
+
+    m = []
+    b = []
+
+    c0 , c1 = calculate_binary_centers(matrix)
+
+    for i in range(len(c0)):
+        m.append(1/(c1[i]-c0[i]))
+        b.append(-m[i]*c0[i])
+
+    return m, b
+
+
+def matrix_to_new_base_matrix(matrix : ndarray, m : list[float], b : list[float]) -> tuple[ndarray, list[int], list[int]] :
+
+    """
+    Defines the new base matrix given the original matrix and the slope centers.
+    Args:
+        matrix: The original matrix
+        m: The slope of the original matrix between the centers
+        b:
+
+    Returns:
+        matrix: The new base matrix
+        c0: The new centers of the new base matrix
+        c1: The new centers of the new base matrix
+    """
+
+    new_matrix = np.zeros((matrix.shape[0],matrix.shape[1]))
+
+    for i in range(matrix.shape[0]):
+        for j in range(matrix.shape[1]):
+            new_matrix[i,j] = m[j] * matrix[i,j] + b[j]
+
+    c0, c1 = calculate_binary_centers(new_matrix)
+
+    return new_matrix, [int(i) for i in c0], [int(i) for i in c1]
+
+
 def get_max_distance_centers(num : int) -> tuple[float,...]:
     return tuple( i / (num - 1) for i in range(num))
