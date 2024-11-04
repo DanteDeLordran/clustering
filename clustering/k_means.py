@@ -32,11 +32,10 @@ def get_best_kmeans(matrix : ndarray, c0 : list[float], c1 : list[float]) -> lis
             c1[i] = ((np.sum(new_matrix[:,4] * matrix[:,i])) + c1[i]) / (np.sum(new_matrix[:,4]) + 1)
 
         results.append( { f'Iteration {iterations}' : {'DC MIN' : f'{np.sum(new_matrix[:, 2])}', 'C0' : f'{np.sum(new_matrix[:,3])}', 'C1' : f'{np.sum(new_matrix[:,4])}' } })
-        iterations = iterations + 1
+        iterations += 1
 
         if dc_min is None:
             dc_min = (sum(new_matrix[:, 2]))
-
         elif dc_min > (sum(new_matrix[:, 2])):
             dc_min = (sum(new_matrix[:, 2]))
         elif dc_min <= (sum(new_matrix[:, 2])):
@@ -52,7 +51,7 @@ def run():
     results = get_best_kmeans(new_matrix, c0, c1)
     print('Results')
     print(json.dumps(results, indent=4))
-    with open('../results.txt', 'w') as file:
+    with open('../results_kmeans.txt', 'w') as file:
         json.dump(results, file, indent=4)
         print("Results have been saved to 'results.txt'")
 
