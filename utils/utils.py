@@ -1,3 +1,4 @@
+import random
 from tkinter import filedialog
 from numpy import ndarray
 import numpy as np
@@ -86,6 +87,14 @@ def matrix_to_new_base_matrix(matrix : ndarray, m : list[float], b : list[float]
     c0, c1 = calculate_binary_centers(new_matrix)
 
     return new_matrix, [int(i) for i in c0], [int(i) for i in c1]
+
+
+def generate_n_sized_random_centers(matrix : ndarray, n : int):
+    random_centers = np.zeros((n,matrix.shape[1]))
+    for i in range(n):
+        for j in range(matrix.shape[1]):
+            random_centers[i,j] = random.random()
+    return random_centers
 
 
 def get_max_distance_centers(num : int) -> tuple[float,...]:
