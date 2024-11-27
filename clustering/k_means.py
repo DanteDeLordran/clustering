@@ -5,7 +5,7 @@ from utils.utils import (
     csv_to_matrix,
     calculate_euclidean_distance,
     get_matrix_slope_centers,
-    matrix_to_new_base_matrix,
+    slope_normalize_matrix,
     generate_n_sized_random_centers,
 )
 
@@ -82,17 +82,17 @@ def save_results(filename: str, results: list[dict]):
 def run():
     matrix = csv_to_matrix()
     m, b = get_matrix_slope_centers(matrix)
-    new_matrix, c0, c1 = matrix_to_new_base_matrix(matrix, m, b)
+    normalized_matrix, c0, c1 = slope_normalize_matrix(matrix, m, b)
 
-    results = get_best_kmeans(new_matrix, [c0, c1])
+    results = get_best_kmeans(normalized_matrix, [c0, c1])
     save_results("../results_kmeans_2.txt", results)
 
     centers = generate_n_sized_random_centers(matrix, 3)
-    results = get_best_kmeans(new_matrix, centers)
+    results = get_best_kmeans(normalized_matrix, centers)
     save_results("../results_kmeans_3.txt", results)
 
     centers = generate_n_sized_random_centers(matrix, 4)
-    results = get_best_kmeans(new_matrix, centers)
+    results = get_best_kmeans(normalized_matrix, centers)
     save_results("../results_kmeans_4.txt", results)
 
 

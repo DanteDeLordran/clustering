@@ -11,7 +11,7 @@ def csv_to_matrix() -> ndarray:
     Returns:
         ndarray: A numpy matrix filled with the CSV data.
     """
-    matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float)
+    matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float, skiprows=1)
     return matrix
 
 
@@ -63,7 +63,7 @@ def get_matrix_slope_centers(matrix : ndarray) -> tuple[list[float], list[float]
     return m, b
 
 
-def matrix_to_new_base_matrix(matrix : ndarray, m : list[float], b : list[float]) -> tuple[ndarray, list[int], list[int]] :
+def slope_normalize_matrix(matrix : ndarray, m : list[float], b : list[float]) -> tuple[ndarray, list[int], list[int]] :
 
     """
     Defines the new base matrix given the original matrix and the slope centers.
@@ -99,3 +99,18 @@ def generate_n_sized_random_centers(matrix : ndarray, n : int):
 
 def get_max_distance_centers(num : int) -> tuple[float,...]:
     return tuple( i / (num - 1) for i in range(num))
+
+
+def z_score_normalize_matrix( matrix : ndarray ):
+    """
+
+    Args:
+        matrix:
+
+    Returns:
+
+    """
+    u = np.mean(matrix)
+    o = np.std(matrix)
+    normalized_matrix = (matrix - u) / o
+    return normalized_matrix
