@@ -101,7 +101,7 @@ def get_max_distance_centers(num : int) -> tuple[float,...]:
     return tuple( i / (num - 1) for i in range(num))
 
 
-def z_score_normalize_matrix( matrix : ndarray ):
+def z_score_normalize_matrix( matrix : ndarray ) -> tuple[ndarray, list[int], list[int]]:
     """
 
     Args:
@@ -113,4 +113,5 @@ def z_score_normalize_matrix( matrix : ndarray ):
     u = np.mean(matrix)
     o = np.std(matrix)
     normalized_matrix = (matrix - u) / o
-    return normalized_matrix
+    c0 , c1 = calculate_binary_centers(normalized_matrix)
+    return normalized_matrix, [int(i) for i in c0], [int(i) for i in c1]
