@@ -1,2 +1,5 @@
 *.txt
 .idea
+
+z-dissimilarity_matrix.csv
+z-score_matrix.csv
