@@ -34,7 +34,17 @@ def get_best_two_center_kmeans(matrix : ndarray, c0 : list[float], c1 : list[flo
             c0[i] = ((np.sum(new_matrix[:,3] * matrix[:,i])) + c0[i]) / (np.sum(new_matrix[:,3]) + 1)
             c1[i] = ((np.sum(new_matrix[:,4] * matrix[:,i])) + c1[i]) / (np.sum(new_matrix[:,4]) + 1)
 
-        results.append( { f'Iteration {iterations}' : {'DC MIN' : f'{np.sum(new_matrix[:, 2])}', 'C0' : f'{np.sum(new_matrix[:,3])}', 'C1' : f'{np.sum(new_matrix[:,4])}' } })
+        results.append(
+            {
+                f'Iteration {iterations}' : {
+                    'DC MIN' : f'{np.sum(new_matrix[:, 2])}',
+                    'DC0' : f'{np.sum(new_matrix[:, 0])}',
+                    'DC1' : f'{np.sum(new_matrix[:, 1])}',
+                    'C0' : f'{np.sum(new_matrix[:,3])}',
+                    'C1' : f'{np.sum(new_matrix[:,4])}'
+                }
+            }
+        )
         iterations += 1
 
         if dc_min is None:
@@ -77,7 +87,20 @@ def get_best_three_center_kmeans(matrix : ndarray, c0 : list[float], c1 : list[f
             c1[i] = ((np.sum(new_matrix[:,5] * matrix[:,i])) + c1[i]) / (np.sum(new_matrix[:,5]) + 1)
             c2[i] = ((np.sum(new_matrix[:,6] * matrix[:,i])) + c2[i]) / (np.sum(new_matrix[:,6]) + 1)
 
-        results.append( { f'Iteration {iterations}' : {'DC MIN' : f'{np.sum(new_matrix[:, 3])}', 'C0' : f'{np.sum(new_matrix[:,4])}', 'C1' : f'{np.sum(new_matrix[:,5])}', 'C2' : f'{np.sum(new_matrix[:,6])}' } })
+        results.append(
+            {
+                f'Iteration {iterations}' : {
+                    'DC MIN' : f'{np.sum(new_matrix[:, 3])}',
+                    'DC0' : f'{np.sum(new_matrix[:, 0])}',
+                    'DC1' : f'{np.sum(new_matrix[:, 1])}',
+                    'DC2' : f'{np.sum(new_matrix[:, 2])}',
+                    'C0' : f'{np.sum(new_matrix[:,4])}',
+                    'C1' : f'{np.sum(new_matrix[:,5])}',
+                    'C2' : f'{np.sum(new_matrix[:,6])}'
+                }
+            }
+        )
+
         iterations += 1
 
         if dc_min is None:
@@ -125,7 +148,22 @@ def get_best_four_center_kmeans(matrix : ndarray, c0 : list[float], c1 : list[fl
             c2[i] = ((np.sum(new_matrix[:,7] * matrix[:,i])) + c2[i]) / (np.sum(new_matrix[:,7]) + 1)
             c3[i] = ((np.sum(new_matrix[:,8] * matrix[:,i])) + c3[i]) / (np.sum(new_matrix[:,8]) + 1)
 
-        results.append( { f'Iteration {iterations}' : {'DC MIN' : f'{np.sum(new_matrix[:, 4])}', 'C0' : f'{np.sum(new_matrix[:,5])}', 'C1' : f'{np.sum(new_matrix[:,6])}', 'C2' : f'{np.sum(new_matrix[:,7])}', 'C3' : f'{np.sum(new_matrix[:,8])}' } })
+        results.append(
+            {
+                f'Iteration {iterations}' : {
+                    'DC MIN' : f'{np.sum(new_matrix[:, 4])}',
+                    'DC0' : f'{np.sum(new_matrix[:, 0])}',
+                    'DC1' : f'{np.sum(new_matrix[:, 1])}',
+                    'DC2' : f'{np.sum(new_matrix[:, 2])}',
+                    'DC3': f'{np.sum(new_matrix[:, 3])}',
+                    'C0' : f'{np.sum(new_matrix[:,5])}',
+                    'C1' : f'{np.sum(new_matrix[:,6])}',
+                    'C2' : f'{np.sum(new_matrix[:,7])}',
+                    'C3' : f'{np.sum(new_matrix[:,8])}'
+                }
+            }
+        )
+
         iterations += 1
 
         if dc_min is None:
