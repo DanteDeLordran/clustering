@@ -7,7 +7,7 @@ from utils.utils import (
     get_matrix_slope_centers,
     slope_normalize_matrix,
     generate_n_sized_random_centers,
-    z_score_normalize_matrix
+    z_score_normalize_matrix, generate_dissimilarity_matrix
 )
 
 
@@ -85,17 +85,18 @@ def run():
     #m, b = get_matrix_slope_centers(matrix)
     #normalized_matrix, c0, c1 = slope_normalize_matrix(matrix, m, b)
     normalized_matrix, c0, c1 = z_score_normalize_matrix(matrix)
+    generate_dissimilarity_matrix(normalized_matrix, "../z-dissimilarity_matrix.csv")
 
     results = get_best_kmeans(normalized_matrix, [c0, c1])
-    save_results("../zresults_kmeans_2.txt", results)
+    save_results("../z-results_kmeans_2.txt", results)
 
     centers = generate_n_sized_random_centers(matrix, 3)
     results = get_best_kmeans(normalized_matrix, centers)
-    save_results("../zresults_kmeans_3.txt", results)
+    save_results("../z-results_kmeans_3.txt", results)
 
     centers = generate_n_sized_random_centers(matrix, 4)
     results = get_best_kmeans(normalized_matrix, centers)
-    save_results("../zresults_kmeans_4.txt", results)
+    save_results("../z-results_kmeans_4.txt", results)
 
 
 if __name__ == "__main__":
