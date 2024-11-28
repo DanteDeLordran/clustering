@@ -2,6 +2,7 @@ import random
 from tkinter import filedialog
 from numpy import ndarray
 import numpy as np
+import csv
 
 
 def csv_to_matrix() -> ndarray:
@@ -11,7 +12,7 @@ def csv_to_matrix() -> ndarray:
     Returns:
         ndarray: A numpy matrix filled with the CSV data.
     """
-    matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float)
+    matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float, skiprows=1)
     return matrix
 
 
@@ -63,7 +64,7 @@ def get_matrix_slope_centers(matrix : ndarray) -> tuple[list[float], list[float]
     return m, b
 
 
-def matrix_to_new_base_matrix(matrix : ndarray, m : list[float], b : list[float]) -> tuple[ndarray, list[int], list[int]] :
+def slope_normalize_matrix(matrix : ndarray, m : list[float], b : list[float]) -> tuple[ndarray, list[int], list[int]] :
 
     """
     Defines the new base matrix given the original matrix and the slope centers.
@@ -99,3 +100,54 @@ def generate_n_sized_random_centers(matrix : ndarray, n : int):
 
 def get_max_distance_centers(num : int) -> tuple[float,...]:
     return tuple( i / (num - 1) for i in range(num))
+
+
+def z_score_normalize_matrix( matrix : ndarray ) -> tuple[ndarray, list[int], list[int]]:
+    #u = np.mean(matrix)
+    #o = np.std(matrix)
+    #normalized_matrix = (matrix - u) / o
+
+    mean = sum(matrix) / len(matrix)
+    differences = [(value - mean)**2 for value in matrix]
+    sum_of_differences = sum(differences)
+    standard_deviation = (sum_of_differences / (len(matrix) - 1)) ** 0.5
+    normalized_matrix = [(item - mean) / standard_deviation for item in matrix]
+    normalized_matrix = np.array(normalized_matrix)
+
+    with open("z-score_normalized_matrix.csv", mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(normalized_matrix)
+    print("z-scored matrix saved on csv")
+
+    c0 , c1 = calculate_binary_centers(normalized_matrix)
+    return normalized_matrix, [int(i) for i in c0], [int(i) for i in c1]
+
+
+def generate_dissimilarity_matrix(matrix: np.ndarray, filename: str):
+    """
+    Generates a dissimilarity matrix using Euclidean distances and saves it to a CSV file.
+
+    Args:
+        matrix: The original matrix (each row is a sample, each column is a feature)
+        filename: The name of the CSV file to save the dissimilarity matrix
+
+    Returns:
+        dissimilarity_matrix: The dissimilarity matrix
+    """
+    rows = matrix.shape[0]
+
+    dissimilarity_matrix = np.zeros((rows, rows))
+
+    for i in range(rows):
+        for j in range(i, rows):
+            distance = np.linalg.norm(matrix[i] - matrix[j])
+            dissimilarity_matrix[i, j] = distance
+            dissimilarity_matrix[j, i] = distance
+
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(dissimilarity_matrix)
+
+    print("Saved dissimilarity matrix in csv")
+
+    return dissimilarity_matrix

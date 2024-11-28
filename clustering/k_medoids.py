@@ -3,7 +3,7 @@ import json
 import numpy as np
 from numpy import ndarray
 
-from utils.utils import csv_to_matrix, calculate_euclidean_distance, get_matrix_slope_centers, matrix_to_new_base_matrix
+from utils.utils import csv_to_matrix, calculate_euclidean_distance, get_matrix_slope_centers, slope_normalize_matrix
 
 
 def calculate_medoids(matrix : ndarray, dc0_row : int, dc1_row : int) -> tuple[list,list]:
@@ -85,7 +85,7 @@ def get_best_kmedoids(matrix : ndarray, c0 : list[float], c1 : list[float]) -> l
 def run():
     matrix = csv_to_matrix()
     m, b  = get_matrix_slope_centers(matrix)
-    new_matrix, c0, c1 = matrix_to_new_base_matrix(matrix, m, b)
+    new_matrix, c0, c1 = slope_normalize_matrix(matrix, m, b)
     results = get_best_kmedoids(new_matrix, c0, c1)
     print('Results')
     print(json.dumps(results, indent=4))
