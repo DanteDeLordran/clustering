@@ -103,17 +103,16 @@ def get_max_distance_centers(num : int) -> tuple[float,...]:
 
 
 def z_score_normalize_matrix( matrix : ndarray ) -> tuple[ndarray, list[int], list[int]]:
-    """
+    #u = np.mean(matrix)
+    #o = np.std(matrix)
+    #normalized_matrix = (matrix - u) / o
 
-    Args:
-        matrix:
-
-    Returns:
-
-    """
-    u = np.mean(matrix)
-    o = np.std(matrix)
-    normalized_matrix = (matrix - u) / o
+    mean = sum(matrix) / len(matrix)
+    differences = [(value - mean)**2 for value in matrix]
+    sum_of_differences = sum(differences)
+    standard_deviation = (sum_of_differences / (len(matrix) - 1)) ** 0.5
+    normalized_matrix = [(item - mean) / standard_deviation for item in matrix]
+    normalized_matrix = np.array(normalized_matrix)
 
     with open("z-score_normalized_matrix.csv", mode='w', newline='') as file:
         writer = csv.writer(file)
