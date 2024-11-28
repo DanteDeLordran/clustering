@@ -115,7 +115,7 @@ def z_score_normalize_matrix( matrix : ndarray ) -> tuple[ndarray, list[int], li
     o = np.std(matrix)
     normalized_matrix = (matrix - u) / o
 
-    with open("../z-score_matrix.csv", mode='w', newline='') as file:
+    with open("z-score_normalized_matrix.csv", mode='w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(normalized_matrix)
     print("z-scored matrix saved on csv")
@@ -135,12 +135,12 @@ def generate_dissimilarity_matrix(matrix: np.ndarray, filename: str):
     Returns:
         dissimilarity_matrix: The dissimilarity matrix
     """
-    num_samples = matrix.shape[0]
+    rows = matrix.shape[0]
 
-    dissimilarity_matrix = np.zeros((num_samples, num_samples))
+    dissimilarity_matrix = np.zeros((rows, rows))
 
-    for i in range(num_samples):
-        for j in range(i, num_samples):
+    for i in range(rows):
+        for j in range(i, rows):
             distance = np.linalg.norm(matrix[i] - matrix[j])
             dissimilarity_matrix[i, j] = distance
             dissimilarity_matrix[j, i] = distance

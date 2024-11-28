@@ -185,17 +185,17 @@ def save_results(filename: str, results: list[dict]):
 def run():
     matrix = csv_to_matrix()
     normalized_matrix, c0, c1 = z_score_normalize_matrix(matrix)
-    generate_dissimilarity_matrix(normalized_matrix, "../z-dissimilarity_matrix.csv")
+    generate_dissimilarity_matrix(normalized_matrix, "z-dissimilarity_matrix.csv")
 
     results = get_best_two_center_kmeans(normalized_matrix, c0, c1)
-    save_results("../z-results_kmeans_2.txt", results)
+    save_results("z-results_kmeans_2.txt", results)
 
     three_centers = generate_n_sized_random_centers(matrix,3)
     c0 = [center for center in three_centers[0][:]]
     c1 = [center for center in three_centers[1][:]]
     c2 = [center for center in three_centers[2][:]]
     results = get_best_three_center_kmeans(normalized_matrix, c0, c1, c2)
-    save_results("../z-results_kmeans_3.txt", results)
+    save_results("z-results_kmeans_3.txt", results)
 
     four_centers = generate_n_sized_random_centers(matrix,4)
     c0 = [center for center in four_centers[0][:]]
@@ -203,7 +203,7 @@ def run():
     c2 = [center for center in four_centers[2][:]]
     c3 = [center for center in four_centers[3][:]]
     results = get_best_four_center_kmeans(normalized_matrix, c0, c1, c2, c3)
-    save_results("../z-results_kmeans_4.txt", results)
+    save_results("z-results_kmeans_4.txt", results)
 
 
 if __name__ == "__main__":
