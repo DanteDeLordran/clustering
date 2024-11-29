@@ -82,6 +82,8 @@ def get_best_two_center_kmeans(matrix : ndarray, first_col : ndarray, c0 : list[
         elif dc_min > (sum(new_matrix[:, 2])):
             dc_min = (sum(new_matrix[:, 2]))
         elif dc_min <= (sum(new_matrix[:, 2])):
+            results.pop()
+            ownerships.pop()
             is_better = False
 
     final_clusters_distance = calculate_euclidean_distance(np.array(c0),np.array(c1))
@@ -182,6 +184,8 @@ def get_best_three_center_kmeans(matrix : ndarray, first_col : ndarray, c0 : lis
         elif dc_min > (sum(new_matrix[:, 3])):
             dc_min = (sum(new_matrix[:, 3]))
         elif dc_min <= (sum(new_matrix[:, 3])):
+            results.pop()
+            ownerships.pop()
             is_better = False
 
     final_clusters_distance_c0_c1 = calculate_euclidean_distance(np.array(c0),np.array(c1))
@@ -304,6 +308,8 @@ def get_best_four_center_kmeans(matrix : ndarray, first_col : ndarray, c0 : list
         elif dc_min > (sum(new_matrix[:, 4])):
             dc_min = (sum(new_matrix[:, 4]))
         elif dc_min <= (sum(new_matrix[:, 4])):
+            results.pop()
+            ownerships.pop()
             is_better = False
 
     final_clusters_distance_c0_c1 = calculate_euclidean_distance(np.array(c0),np.array(c1))
