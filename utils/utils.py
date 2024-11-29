@@ -5,7 +5,7 @@ import numpy as np
 import csv
 
 
-def csv_to_matrix() -> ndarray:
+def csv_to_matrix() -> tuple[ndarray, ndarray]:
     """
     Takes a CSV file and turns it into a numpy matrix.
 
@@ -13,7 +13,8 @@ def csv_to_matrix() -> ndarray:
         ndarray: A numpy matrix filled with the CSV data.
     """
     matrix = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=float, skiprows=1)
-    return matrix
+    first_col = np.loadtxt(filedialog.askopenfilename(), delimiter=',', dtype=str, skiprows=1)
+    return matrix, first_col
 
 
 def calculate_euclidean_distance(vector1 : ndarray , vector2 : ndarray) -> float:
