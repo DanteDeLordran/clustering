@@ -5,7 +5,7 @@ from utils.utils import (
     csv_to_matrix,
     calculate_euclidean_distance,
     generate_n_sized_random_centers,
-    z_score_normalize_matrix, generate_dissimilarity_matrix
+    z_score_normalize_matrix, generate_dissimilarity_matrix, slope_normalize_matrix, get_matrix_slope_centers
 )
 
 
@@ -335,10 +335,14 @@ def save_results(filename: str, results: list[dict]):
     print(f"Results have been saved to '{filename}'")
 
 
-def run():
+def run(mode = "z-score"):
     matrix, first_col = csv_to_matrix()
-    normalized_matrix, c0, c1 = z_score_normalize_matrix(matrix)
-    generate_dissimilarity_matrix(normalized_matrix, "z-dissimilarity_matrix.csv")
+    if mode != "z-score":
+        m, b = get_matrix_slope_centers(matrix)
+        normalized_matrix, c0, c1 = slope_normalize_matrix(matrix,m, b)
+    else:
+        normalized_matrix, c0, c1 = z_score_normalize_matrix(matrix)
+        generate_dissimilarity_matrix(normalized_matrix, "z-dissimilarity_matrix.csv")
     results, ownerships = get_best_two_center_kmeans(normalized_matrix, first_col, c0, c1)
     save_results("z-results_kmeans_2.txt", results)
     save_results("z-ownerships_kmeans_2.txt", ownerships)
